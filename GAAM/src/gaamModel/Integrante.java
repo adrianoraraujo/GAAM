@@ -3,7 +3,7 @@ package gaamModel;
 public class Integrante{
 
 private Integer id;
-private TipoIntegrante tipointegrante;
+private Tipointegrante tipointegrante;
 private String nome;
 private String cpf;
 private String endereco;
@@ -12,16 +12,32 @@ private String email;
 private Integer idade;
 private String nome_resp;
 
+
+public Integrante() {
+	
+}
+public Integrante(Tipointegrante tipointegrante, String nome, String cpf, String endereco, String telefone,
+		String email, Integer idade, String nome_resp) {
+	super();
+	this.tipointegrante = tipointegrante;
+	this.nome = nome;
+	this.cpf = cpf;
+	this.endereco = endereco;
+	this.telefone = telefone;
+	this.email = email;
+	this.idade = idade;
+	this.nome_resp = nome_resp;
+}
 public Integer getId() {
 	return id;
 }
 public void setId(Integer id) {
 	this.id = id;
 }
-public TipoIntegrante getTipointegrante() {
+public Tipointegrante getTipointegrante() {
 	return tipointegrante;
 }
-public void setTipointegrante(TipoIntegrante tipointegrante) {
+public void setTipointegrante(Tipointegrante tipointegrante) {
 	this.tipointegrante = tipointegrante;
 }
 public String getNome() {

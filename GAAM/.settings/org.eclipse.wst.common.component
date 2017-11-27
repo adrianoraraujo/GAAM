@@ -2,6 +2,15 @@
     <wb-module deploy-name="GAAM">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="postgresql-42.1.4.jar" deploy-path="lib" handle="module:/classpath/lib/WebContent/lib/postgresql-42.1.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="taglibs-standard-impl-1.2.5.jar" deploy-path="lib" handle="module:/classpath/lib/WebContent/lib/taglibs-standard-impl-1.2.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="taglibs-standard-spec-1.2.5.jar" deploy-path="lib" handle="module:/classpath/lib/WebContent/lib/taglibs-standard-spec-1.2.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="GAAM"/>
         <property name="java-output-path" value="/GAAM/build/classes"/>
     </wb-module>

@@ -1,10 +1,18 @@
 package gaamModel;
 
-public class TipoIntegrante {
+public class Tipointegrante {
 	
 private Integer id;
 private String descricao;
 
+public Tipointegrante() {
+	
+}
+
+public Tipointegrante( String descricao) {
+	super();
+	this.descricao = descricao;
+}
 public String getDescricao() {
 	return descricao;
 }
