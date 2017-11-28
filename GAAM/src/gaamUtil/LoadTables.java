@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class LoadTables {
 
-	public void creatScherma(Connection c) throws SQLException {
+	public void createSchema(Connection c) throws SQLException {
 		//alterar os creates 
 		
 		Statement stmt = c.createStatement();
@@ -14,7 +14,7 @@ public class LoadTables {
 
 		stmt.execute("CREATE TABLE INTEGRANTES ( ID INTEGER IDENTITY PRIMARY KEY,  NOME VARCHAR(40),"
 				+ " CPF  VARCHAR(11), ENDERECO VARCHAR(255), TELEFONE VARCHAR(10), EMAIL VARCHAR(30), IDADE INTEGER, NOME_RESP VARCHAR(40), TIPO_IN_ID INTEGER );");
-		stmt.execute("CREATE TABLE TIPOINTEGRANTES ( ID INTEGER IDENTITY PRIMARY KEY,  DESCRICAO VARCHAR(255);");
+		stmt.execute("CREATE TABLE TIPOINTEGRANTES ( ID INTEGER IDENTITY PRIMARY KEY,  DESCRICAO VARCHAR(255));");
 		stmt.execute("ALTER TABLE INTEGRANTES ADD FOREIGN KEY (TIPO_IN_ID) REFERENCES TIPOINTEGRANTES(ID);");
 		//stmt.execute("CREATE TABLE TIPOS ( ID INTEGER IDENTITY PRIMARY KEY, NOME VARCHAR(255), DESCRICAO  VARCHAR(255));");
 	//	stmt.execute("ALTER TABLE ESPACOS ADD FOREIGN KEY (TIPO_ID) REFERENCES TIPOS(ID);");
