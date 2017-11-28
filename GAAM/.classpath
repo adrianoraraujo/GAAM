@@ -12,9 +12,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="lib" path="/home/daredevil/Downloads/taglibs-standard-impl-1.2.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="WebContent/lib/postgresql-42.1.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/daredevil/gitGEU/geu/geu/WebContent/WEB-INF/lib/hsqldb.jar"/>
+	<classpathentry exported="true" kind="lib" path="WebContent/lib/taglibs-standard-spec-1.2.5.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="WebContent/lib/postgresql-42.1.4.jar"/>
-	<classpathentry kind="lib" path="WebContent/lib/taglibs-standard-impl-1.2.5.jar"/>
-	<classpathentry kind="lib" path="WebContent/lib/taglibs-standard-spec-1.2.5.jar"/>
+	<classpathentry kind="lib" path="/home/daredevil/Downloads/postgresql-42.1.4.jar"/>
+	<classpathentry kind="lib" path="/home/daredevil/Downloads/taglibs-standard-spec-1.2.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

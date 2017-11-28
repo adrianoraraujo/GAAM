@@ -8,15 +8,15 @@
 </head>
 <body>
 <div class="container">
-+		<div class="page-header">
-+			<h1>Cadastrar Tipo de Integrante</h1>
-+		</div>
-+			<form action="tipointegrantes" method="post">
-+			Descrição:<input type="text" name="descricao" /><br> 
-+			<input type="submit" value="Salvar" />
-+
-+		</form>
-+	</div>
+		<div class="page-header">
+			<h1>Cadastrar Tipo de Integrante</h1>
+		</div>
+			<form action="tipointegrantes" method="post">
+			Descrição:<input type="text" name="descricao" /><br> 
+			<input type="submit" value="Salvar" />
+
+		</form>
+	</div>
 
 </body>
 </html>

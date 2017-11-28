@@ -8,17 +8,17 @@
 </head>
 <body>
 <div class="container">
-+		<div class="page-header">
-+			<h1>Cadastrar Integrante</h1>
-+		</div>
-+		<form action="integrantes" method="post">
-+			Nome:<input type="text" name="nome" /><br>
-+			Cpf:<input type="text" name="cpf"/><br>
-+			Endereço:<input type="text" name="endereco"/><br>
-+			Telefone:<input type="text" name="telefone" /><br>
-+			E-mail:<input type="text"name="email" /><br>
-+			Idade:<input type="text"name="idade" /><br>
-+			Nome do Responsável:<input type="text" name="nomeresp" /><br>
+		<div class="page-header">
+			<h1>Cadastrar Integrante</h1>
+		</div>
+		<form action="integrantes" method="post">
+			Nome:<input type="text" name="nome" /><br>
+			Cpf:<input type="text" name="cpf"/><br>
+			Endereço:<input type="text" name="endereco"/><br>
+			Telefone:<input type="text" name="telefone" /><br>
+			E-mail:<input type="text"name="email" /><br>
+			Idade:<input type="text"name="idade" /><br>
+			Nome do Responsável:<input type="text" name="nomeresp" /><br>
 Tipo Integrante: 
 		<select name="tipo" >
 			<option value="" selected>Selecione</option>
@@ -26,10 +26,10 @@ Tipo Integrante:
 				<option value="${tipo.id}">${tipo.descricao}</option>
 			</c:forEach>
 </select>
-+			<input type="submit" value="Salvar" />
-+
-+		</form>
-+	</div>
+			<input type="submit" value="Salvar" />
+
+		</form>
+	</div>
 
 </body>
 </html>
