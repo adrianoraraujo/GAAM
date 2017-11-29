@@ -1,6 +1,7 @@
 package gaamController;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,8 +27,8 @@ public class IntegranteController extends HttpServlet{
 		String q = request.getParameter("q");
 		if (q != null && q.equals("new")) {
 			TipointegranteDAO dao = new TipointegranteDAO();
-			request.setAttribute("lista", dao.listar());
-			
+			request.setAttribute("listaTipo", dao.listar());
+			request.getRequestDispatcher("integform.jsp").forward(request, response);
 		}else {
 			IntegrantesDAO dao = new IntegrantesDAO();
 			request.setAttribute("lista", dao.listar());
@@ -39,6 +40,8 @@ public class IntegranteController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		IntegrantesDAO dao = new IntegrantesDAO();
+List<Integrante>integrantes =dao.listar();
 		
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
@@ -47,7 +50,7 @@ public class IntegranteController extends HttpServlet{
 		String idade = request.getParameter("idade");
 		String nome_resp = request.getParameter("nomeresp");
 		String email = request.getParameter("email");
-		int Tipo_in_ID = Integer.parseInt(request.getParameter("tipo"));
+		int Tipo_in_id = Integer.parseInt(request.getParameter("tipo"));
 		
 		
 		Integrante i = new Integrante();
@@ -60,13 +63,13 @@ public class IntegranteController extends HttpServlet{
 		i.setIdade(ida);
 		i.setNome_resp(nome_resp);
 		Tipointegrante ti = new Tipointegrante();
-		ti.setId(Tipo_in_ID);
+		ti.setId(Tipo_in_id);
 		i.setTipointegrante(ti);
-		
-		
-		
-		IntegrantesDAO dao = new IntegrantesDAO();
-		dao.inserir(i);
+				
+		if(!integrantes.contains(i))
+			dao.inserir(i);			
+		else
+			request.setAttribute("errmsg", "Não foi possivel adicionar: conflito de horário");
 		request.setAttribute("lista", dao.listar());
 		request.getRequestDispatcher("integlist.jsp").forward(request, response);
 

@@ -27,7 +27,7 @@ public class IntegrantesDAO {
 		List<Integrante> integrantes = new ArrayList<>();
 		try {
 			stmt = conexao.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("select id,nome, cpf, endereco, telefone, email, idade, tipo_in_id, nome_resp from integrantes, tipointegrantes");
+			ResultSet rs = stmt.executeQuery("select integrantes.id,nome, cpf, endereco, telefone, email, idade, tipo_in_id, tipointegrantes.descricao, nome_resp from integrantes, tipointegrantes where integrantes.tipo_in_id = tipointegrantes.id");
 			while(rs.next()) {
 				
 				Integrante i = new Integrante();
@@ -38,14 +38,14 @@ public class IntegrantesDAO {
 				i.setTelefone(rs.getString("telefone"));
 				i.setEmail(rs.getString("email"));
 				int ida = Integer.parseInt(rs.getString("idade"));
-				i.setIdade(ida);
+				i.setIdade(rs.getInt(ida));
 				i.setNome_resp(rs.getString("nome_resp"));
 
 				Tipointegrante t = new Tipointegrante();
 				t.setId(rs.getInt("tipo_in_id"));
+				
+				
 				i.setTipointegrante(t);
-				
-				
 				integrantes.add(i);
 			}
 			stmt.close();
@@ -62,8 +62,9 @@ public class IntegrantesDAO {
 		List<Integrante> integrantes = new ArrayList<>();
 		try {
 			stmt = conexao.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("select integrantes.id,nome, cpf, endereco, telefone, email, idade, tipo_in_id, nome_resp from integrantes, tipointegrantes where integrantes.tipo_in_id=tipointegrantes.id;");
+			ResultSet rs = stmt.executeQuery("select integrantes.id, nome, cpf, endereco, telefone, email, idade, tipo_in_id, nome_resp from integrantes, tipointegrantes where integrantes.tipo_in_id = tipointegrantes.id;");
 			while(rs.next()) {
+				
 				Integrante i = new Integrante();
 				i.setId(rs.getInt("id"));
 				i.setNome(rs.getString("nome"));
@@ -71,15 +72,14 @@ public class IntegrantesDAO {
 				i.setEndereco(rs.getString("endereco"));
 				i.setTelefone(rs.getString("telefone"));
 				i.setEmail(rs.getString("email"));
-				int ida = Integer.parseInt(rs.getString("idade"));
-				i.setIdade(ida);
+				i.setIdade(rs.getInt("idade"));
 				i.setNome_resp(rs.getString("nome_resp"));
 
 				Tipointegrante t = new Tipointegrante();
 				t.setId(rs.getInt("tipo_in_id"));
+				
+				
 				i.setTipointegrante(t);
-				
-				
 				integrantes.add(i);
 			}
 			stmt.close();
@@ -94,15 +94,17 @@ public class IntegrantesDAO {
 	public void inserir(Integrante integrantes) {
 		try {
 
-			PreparedStatement ps = conexao.getConnection().prepareStatement("insert into integrantes (,nome, cpf, endereco, telefone, email, idade, tipo_in_id, nome_resp) values (?,?,?,?,?,?,?,?);");
+			PreparedStatement ps = conexao.getConnection().prepareStatement("insert into integrantes (nome, cpf, endereco, telefone, idade,email, nome_resp, tipo_in_id) values (?,?,?,?,?,?,?,?);");
 			ps.setString(1, integrantes.getNome());
 			ps.setString(2, integrantes.getCpf());
 			ps.setString(3, integrantes.getEndereco());
 			ps.setString(4, integrantes.getTelefone());
-			ps.setString(5, integrantes.getEmail());
-			ps.setInt(6, integrantes.getIdade());
-			ps.setInt(7, integrantes.getTipointegrante().getId());
-			ps.setString(8, integrantes.getNome_resp());
+			ps.setInt(5, integrantes.getIdade());
+			ps.setString(7, integrantes.getNome_resp());
+			ps.setString(6, integrantes.getEmail());
+			ps.setInt(8, integrantes.getTipointegrante().getId());
+
+
 			ps.execute();
 			ps.close();
 		} catch (SQLException e) {

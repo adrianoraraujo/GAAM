@@ -34,7 +34,6 @@ public class TipointegranteController extends HttpServlet{
 				TipointegranteDAO dao = new TipointegranteDAO();
 				request.setAttribute("lista", dao.listar());
 				request.getRequestDispatcher("tipolist.jsp").forward(request, response);
-				//criar o tipolist
 			}
 		}
 

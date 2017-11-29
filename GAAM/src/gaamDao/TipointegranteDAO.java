@@ -58,7 +58,23 @@ public class TipointegranteDAO {
 		}
 
 	}
-
+	public Tipointegrante getByID(int id) {
+		Tipointegrante i = null;
+		try {
+			PreparedStatement ps = conexao.getConnection().prepareStatement("select id, descricao where id=?");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				i = new Tipointegrante();
+				i.setId(rs.getInt("id"));
+				i.setDescricao("descricao");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	return i;	
+	}
 	public void close()
 	{
 		conexao.closeConnection();
