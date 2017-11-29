@@ -94,7 +94,7 @@ public class IntegrantesDAO {
 	public void inserir(Integrante integrantes) {
 		try {
 
-			PreparedStatement ps = conexao.getConnection().prepareStatement("insert into integrantes (,nome, cpf, endereco, telefone, email, idade, tipo_in_id, nome_resp) values (?,?,?,?,?,?,?,?);");
+			PreparedStatement ps = conexao.getConnection().prepareStatement("insert into integrantes (nome, cpf, endereco, telefone, email, idade, tipo_in_id, nome_resp) values (?,?,?,?,?,?,?,?);");
 			ps.setString(1, integrantes.getNome());
 			ps.setString(2, integrantes.getCpf());
 			ps.setString(3, integrantes.getEndereco());

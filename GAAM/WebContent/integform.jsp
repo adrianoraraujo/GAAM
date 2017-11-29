@@ -23,7 +23,7 @@
 Tipo Integrante: 
 		<select name="tipo" >
 			<option value="" selected>Selecione</option>
-			<c:forEach var="tipo" items="${listaTipo}">
+			<c:forEach var="tipo" items="${lista}">
 				<option value="${tipo.id}">${tipo.descricao}</option>
 			</c:forEach>
 </select>

@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<ul>
+<li><a href="tipoform.jsp">Tipo Integrantes</a></li>
+<li><a href="integrantes?q=new">Integrantes</a></li>
+</ul>
 </body>
 </html>

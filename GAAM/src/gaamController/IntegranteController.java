@@ -27,7 +27,7 @@ public class IntegranteController extends HttpServlet{
 		if (q != null && q.equals("new")) {
 			TipointegranteDAO dao = new TipointegranteDAO();
 			request.setAttribute("lista", dao.listar());
-			
+			request.getRequestDispatcher("integform.jsp").forward(request, response);
 		}else {
 			IntegrantesDAO dao = new IntegrantesDAO();
 			request.setAttribute("lista", dao.listar());
